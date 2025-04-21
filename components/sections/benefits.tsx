@@ -51,7 +51,7 @@ export function BenefitsSection() {
   }, []);
 
   return (
-    <section className="py-24 bg-[#1e3a8a]" ref={sectionRef}>
+    <section id="beneficios" className="py-24 bg-[#1e3a8a]" ref={sectionRef}>
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           <h2 

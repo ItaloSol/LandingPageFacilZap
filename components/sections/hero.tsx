@@ -42,7 +42,7 @@ export function HeroSection() {
   const isSmUp = useIsSmUp();
 
   return (
-    <section className="relative h-screen min-h-screen bg-gradient-to-b from-[#1e3a8a] to-[#0f172a] py-16 sm:py-24 md:py-32 text-white overflow-hidden flex items-center">
+    <section id='hero' className="relative h-screen min-h-screen bg-gradient-to-b from-[#1e3a8a] to-[#0f172a] py-16 sm:py-24 md:py-32 text-white overflow-hidden flex items-center">
       {isSmUp && (
         <Image 
           src="/fundo.webp" 

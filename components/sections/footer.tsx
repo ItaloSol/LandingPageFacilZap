@@ -1,7 +1,7 @@
 'use client';
 
 import { Button } from "@/components/ui/button";
-import { Facebook, Instagram, Linkedin, MessageSquare, MessageCircle } from "lucide-react";
+import { Facebook, Instagram, Linkedin, MessageSquare, MessageCircle,Globe } from "lucide-react";
 import { useEffect, useRef } from "react";
 import Image from 'next/image';
 
@@ -52,7 +52,7 @@ export function Footer() {
             alt="FácilZap Logo"
             width={200}
             height={50}
-            className=" w-auto"
+            className="h-8 md:h-16  w-auto"
           />
             </div>
             <p className="text-white/70 mb-4">
@@ -69,18 +69,28 @@ export function Footer() {
             <h3 className="font-semibold mb-4 text-white">Links Úteis</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-white/70 hover:text-[#14532d] transition-colors footer-link">
-                  Termos de Uso
+                <a href="#hero" className="text-white/70 hover:text-[#14532d] transition-colors footer-link">
+                  Início
                 </a>
               </li>
               <li>
-                <a href="#" className="text-white/70 hover:text-[#14532d] transition-colors footer-link">
-                  Política de Privacidade
+                <a href="#problema" className="text-white/70 hover:text-[#14532d] transition-colors footer-link">
+                  Problema & Solução
                 </a>
               </li>
               <li>
-                <a href="#" className="text-white/70 hover:text-[#14532d] transition-colors footer-link">
-                  Suporte
+                <a href="#beneficios" className="text-white/70 hover:text-[#14532d] transition-colors footer-link">
+                  Benefícios
+                </a>
+              </li>
+              <li>
+                <a href="#portfolio" className="text-white/70 hover:text-[#14532d] transition-colors footer-link">
+                  Portfólio
+                </a>
+              </li>
+              <li>
+                <a href="#precos" className="text-white/70 hover:text-[#14532d] transition-colors footer-link">
+                  Preços
                 </a>
               </li>
             </ul>
@@ -102,19 +112,11 @@ export function Footer() {
             </Button>
             
             <div className="flex gap-4">
+             
               <Button
                 variant="ghost"
                 size="icon"
-                onClick={() => handleSocialClick('https://facebook.com')}
-                className="hover:text-[#14532d] hover:bg-[#14532d]/10 transition-all duration-300 hover:scale-110 animate-fadeIn delay-900"
-                data-animate
-              >
-                <Facebook className="h-5 w-5" />
-              </Button>
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => handleSocialClick('https://instagram.com')}
+                onClick={() => handleSocialClick('https://www.instagram.com/sil_facilzap?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==')}
                 className="hover:text-[#14532d] hover:bg-[#14532d]/10 transition-all duration-300 hover:scale-110 animate-fadeIn delay-1100"
                 data-animate
               >
@@ -123,11 +125,11 @@ export function Footer() {
               <Button
                 variant="ghost"
                 size="icon"
-                onClick={() => handleSocialClick('https://linkedin.com')}
+                onClick={() => handleSocialClick('http://facilzap.com.br/planos?af=6636')}
                 className="hover:text-[#14532d] hover:bg-[#14532d]/10 transition-all duration-300 hover:scale-110 animate-fadeIn delay-1300"
                 data-animate
               >
-                <Linkedin className="h-5 w-5" />
+              <Globe className="h-5 w-5" />
               </Button>
             </div>
           </div>
@@ -137,7 +139,8 @@ export function Footer() {
           className="mt-12 pt-8 border-t border-white/10 text-center text-sm text-white/70 animate-fadeIn delay-1500"
           data-animate
         >
-          <p>© {new Date().getFullYear()} FácilZap. Todos os direitos reservados.</p>
+          <p>© {new Date().getFullYear()} FácilZap. Todos os direitos reservados.<br />
+          Desenvolvido por <a href="https://www.instagram.com/landingpagecraft/" className=" hover:text-orange-600 transition-colors" target="_blank" rel="noopener noreferrer">landingpagecraft</a></p>
         </div>
       </div>
     </footer>

@@ -47,7 +47,7 @@ export function PortfolioSection() {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-[#1e3a8a] relative overflow-hidden max-h-screen h-screen">
+    <section id='portfolio' className="py-16 md:py-24 bg-[#1e3a8a] relative overflow-hidden max-h-screen h-screen">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-8 md:mb-12">
