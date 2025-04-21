@@ -51,17 +51,17 @@ export function BenefitsSection() {
   }, []);
 
   return (
-    <section className="py-24 bg-background" ref={sectionRef}>
+    <section className="py-24 bg-[#1e3a8a]" ref={sectionRef}>
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           <h2 
-            className="text-3xl md:text-4xl font-bold text-center mb-4 animate-fadeInDown"
+            className="text-3xl md:text-4xl font-bold text-center mb-4 text-white"
             data-animate
           >
-            Você vai ter tudo isso, de forma simples e eficiente
+            Benefícios
           </h2>
           <p 
-            className="text-xl text-muted-foreground text-center mb-12 max-w-2xl mx-auto animate-fadeIn delay-300"
+            className="text-xl text-white/80 text-center mb-12 max-w-2xl mx-auto"
             data-animate
           >
             Uma solução completa para impulsionar seu negócio no mundo digital
@@ -71,16 +71,16 @@ export function BenefitsSection() {
             {benefits.map((benefit, index) => (
               <Card 
                 key={index} 
-                className={`p-6 hover:shadow-lg transition-all duration-300 transform hover:scale-105 animate-slideUp delay-${(index + 2) * 200}`}
+                className="p-6 hover:shadow-lg transition-all duration-300 transform hover:scale-105 bg-[#0f172a] border-white/10"
                 data-animate
               >
                 <div className="flex gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                    <benefit.icon className="w-6 h-6 text-primary transform transition-transform group-hover:rotate-6" />
+                  <div className="w-12 h-12 rounded-lg bg-[#14532d]/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                    <benefit.icon className="w-6 h-6 text-[#f97316] transform transition-transform group-hover:rotate-6" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold mb-2">{benefit.title}</h3>
-                    <p className="text-muted-foreground">{benefit.description}</p>
+                    <h3 className="text-xl font-semibold mb-2 text-white">{benefit.title}</h3>
+                    <p className="text-white/70">{benefit.description}</p>
                   </div>
                 </div>
               </Card>

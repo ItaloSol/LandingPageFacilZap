@@ -9,27 +9,11 @@ import Image from 'next/image';
 const portfolioItems = [
   { name: 'SS Multimarcas', image: '1.webp', description: 'E-commerce de moda' },
   { name: 'Tech Store', image: '2.webp', description: 'Loja de eletrônicos' },
-  {
-    name: 'Bella Cosméticos',
-    image: '3.webp',
-    description: 'Produtos de beleza',
-  },
-  {
-    name: 'Pet Shop Online',
-    image: '4.webp',
-    description: 'Produtos para pets',
-  },
+  { name: 'Bella Cosméticos', image: '3.webp', description: 'Produtos de beleza' },
+  { name: 'Pet Shop Online', image: '4.webp', description: 'Produtos para pets' },
   { name: 'Café Gourmet', image: '5.webp', description: 'Cafeteria online' },
-  {
-    name: 'Fit Store',
-    image: '6.webp',
-    description: 'Suplementos e produtos fitness',
-  },
-  {
-    name: 'Joias & Acessórios',
-    image: '7.webp',
-    description: 'Bijuterias e semi-joias',
-  },
+  { name: 'Fit Store', image: '6.webp', description: 'Suplementos e produtos fitness' },
+  { name: 'Joias & Acessórios', image: '7.webp', description: 'Bijuterias e semi-joias' },
 ];
 
 export function PortfolioSection() {
@@ -44,16 +28,12 @@ export function PortfolioSection() {
     const interval = setInterval(() => {
       if (!container) return;
 
-      if (
-        container.scrollLeft + container.clientWidth >=
-        container.scrollWidth - 5
-      ) {
-        // Volta para o início suavemente
+      if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 5) {
         container.scrollTo({ left: 0, behavior: 'smooth' });
       } else {
-        container.scrollBy({ left: scrollAmount / 2, behavior: 'smooth' }); // scroll mais devagar
+        container.scrollBy({ left: scrollAmount / 2, behavior: 'smooth' });
       }
-    }, 3000); // a cada 3 segundos
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);
@@ -61,21 +41,20 @@ export function PortfolioSection() {
   const scroll = (direction: 'left' | 'right') => {
     const container = scrollContainerRef.current;
     if (container) {
-      const scrollAmount =
-        direction === 'left' ? -container.offsetWidth : container.offsetWidth;
+      const scrollAmount = direction === 'left' ? -container.offsetWidth : container.offsetWidth;
       container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
   };
 
   return (
-    <section className="py-16 md:py-24 bg-muted relative overflow-hidden">
+    <section className="py-16 md:py-24 bg-[#1e3a8a] relative overflow-hidden max-h-screen h-screen">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-3">
+            <h2 className="text-3xl md:text-4xl font-bold mb-3 text-white">
               Sites que já criamos para nossos clientes
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-white/80 max-w-2xl mx-auto">
               Resultados reais com design moderno e pronto para vender
             </p>
           </div>
@@ -84,7 +63,7 @@ export function PortfolioSection() {
             <Button
               variant="outline"
               size="icon"
-              className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-background/80 hidden md:flex"
+              className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white/80 hidden md:flex"
               onClick={() => scroll('left')}
             >
               <ArrowLeft className="h-4 w-4" />
@@ -97,7 +76,7 @@ export function PortfolioSection() {
               {portfolioItems.map((item, index) => (
                 <Card
                   key={index}
-                  className="flex-none w-[260px] sm:w-[280px] md:w-[300px] overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-105 snap-start bg-transparent border-none"
+                  className="flex-none w-[260px] sm:w-[280px] md:w-[300px] overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-105 snap-start bg-white/10 backdrop-blur-sm border-white/20"
                 >
                   <div className="relative w-full h-full aspect-[9/16] overflow-hidden group rounded-xl">
                     <Image
@@ -106,9 +85,9 @@ export function PortfolioSection() {
                       fill
                       className="w-full border-none h-full object-contain object-center transition-transform duration-300"
                       sizes="(max-width: 768px) 260px, (max-width: 1024px) 280px, 300px"
-                      priority={index < 2} // Prioritize loading first two images
+                      priority={index < 2}
                     />
-                    <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-white px-2">
+                    <div className="absolute inset-0 bg-[#0f172a]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-white px-2">
                       <h3 className="text-lg font-semibold">{item.name}</h3>
                       <p className="text-sm">{item.description}</p>
                     </div>
@@ -120,7 +99,7 @@ export function PortfolioSection() {
             <Button
               variant="outline"
               size="icon"
-              className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-background/80 hidden md:flex"
+              className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white/80 hidden md:flex"
               onClick={() => scroll('right')}
             >
               <ArrowRight className="h-4 w-4" />

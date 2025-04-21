@@ -2,7 +2,23 @@
 
 import { Button } from "@/components/ui/button";
 import { ArrowRight, MessageCircle } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import Image from 'next/image';
+
+
+// Custom hook to detect sm and up
+function useIsSmUp() {
+  const [isSmUp, setIsSmUp] = useState(false);
+
+  useEffect(() => {
+    const checkScreen = () => setIsSmUp(window.innerWidth >= 640);
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
+    return () => window.removeEventListener("resize", checkScreen);
+  }, []);
+
+  return isSmUp;
+}
 
 export function CTASection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -32,9 +48,19 @@ export function CTASection() {
     window.open(`https://wa.me/5511940003147?text=${message}`, '_blank');
   };
 
+  const isSmUp = useIsSmUp();
+
   return (
-    <section className="py-16 md:py-20 bg-primary text-primary-foreground relative overflow-hidden" ref={sectionRef}>
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=2069')] bg-cover bg-center opacity-5" />
+    <section className="py-16 md:py-20 bg-[#0f172a] text-white relative overflow-hidden" ref={sectionRef}>
+      {isSmUp && (
+        <Image 
+          src="/fundo.webp" 
+          alt="Background" 
+          layout="fill" 
+          objectFit="cover" 
+          className="absolute inset-0 opacity-10"
+        />
+      )}
       <div className="container mx-auto px-4 text-center relative">
         <h2 
           className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 md:mb-4 max-w-[15ch] mx-auto leading-tight animate-zoomIn"
@@ -51,7 +77,7 @@ export function CTASection() {
         <Button
           size="lg"
           onClick={handleWhatsAppClick}
-          className="bg-white text-primary hover:bg-white/90 text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 h-auto font-semibold group
+          className="bg-[#14532d] text-white hover:bg-[#166534] text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 h-auto font-semibold group
             transition-all duration-300 hover:scale-105 animate-borderGlow hover:animate-shake w-full sm:w-auto animate-slideUp delay-600"
           data-animate
         >

@@ -11,6 +11,17 @@ import { TrustSection } from "@/components/sections/trust";
 import { PortfolioSection } from "@/components/sections/portfolio";
 import { Footer } from "@/components/sections/footer";
 import { FloatingWhatsApp } from "@/components/floating-whatsapp";
+import { Suspense } from "react";
+import dynamic from "next/dynamic";
+
+// Lazy load sections that are below the fold
+const LazyPortfolioSection = dynamic(() => import("@/components/sections/portfolio").then(mod => mod.PortfolioSection), {
+  loading: () => <div className="h-96 bg-[#1e3a8a]" />
+});
+
+const LazyTestimonialsSection = dynamic(() => import("@/components/sections/testimonials").then(mod => mod.TestimonialsSection), {
+  loading: () => <div className="h-96 bg-[#1e3a8a]" />
+});
 
 export default function Home() {
   return (
@@ -19,9 +30,13 @@ export default function Home() {
       <ProblemSolutionSection />
       <BenefitsSection />
       <FeaturesSection />
-      <PortfolioSection />
+      <Suspense fallback={<div className="h-96 bg-[#1e3a8a]" />}>
+        <LazyPortfolioSection />
+      </Suspense>
       <TrustSection />
-      <TestimonialsSection />
+      <Suspense fallback={<div className="h-96 bg-[#1e3a8a]" />}>
+        <LazyTestimonialsSection />
+      </Suspense>
       <PricingSection />
       <CTASection />
       <Footer />

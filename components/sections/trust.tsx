@@ -2,7 +2,8 @@
 
 import { Card } from "@/components/ui/card";
 import { Shield, HeadphonesIcon, Rocket, Clock } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import Image from 'next/image';
 
 const trustFeatures = [
   {
@@ -27,8 +28,23 @@ const trustFeatures = [
   }
 ];
 
+function useIsSmUp() {
+  const [isSmUp, setIsSmUp] = useState(false);
+
+  useEffect(() => {
+    // Only run on client
+    const checkScreen = () => setIsSmUp(window.innerWidth >= 640); // 640px is Tailwind's sm breakpoint
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
+    return () => window.removeEventListener("resize", checkScreen);
+  }, []);
+
+  return isSmUp;
+}
+
 export function TrustSection() {
   const sectionRef = useRef<HTMLElement>(null);
+  const isSmUp = useIsSmUp();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -51,8 +67,17 @@ export function TrustSection() {
   }, []);
 
   return (
-    <section className="py-24 bg-primary/95 text-primary-foreground relative overflow-hidden" ref={sectionRef}>
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=2069')] bg-cover bg-center opacity-10" />
+    <section className="py-24 bg-[#0f172a] text-white relative overflow-hidden" ref={sectionRef}>
+      {isSmUp && (
+        <Image 
+          src="/fundo.webp" 
+          alt="Background" 
+          layout="fill" 
+          objectFit="cover" 
+          className="absolute inset-0 opacity-10"
+        />
+      )}
+
       
       <div className="container mx-auto px-4 relative">
         <div className="max-w-5xl mx-auto">
@@ -64,7 +89,7 @@ export function TrustSection() {
               Conte com quem entende do assunto
             </h2>
             <p 
-              className="text-xl text-white/95 max-w-2xl mx-auto animate-slideUp delay-300"
+              className="text-xl text-white/90 max-w-2xl mx-auto animate-slideUp delay-300"
               data-animate
             >
               Não é só uma ferramenta, é uma parceria completa para o sucesso do seu negócio
@@ -75,12 +100,12 @@ export function TrustSection() {
             {trustFeatures.map((feature, index) => (
               <Card 
                 key={index} 
-                className={`p-6 bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 animate-slideUp delay-${(index + 2) * 200}`}
+                className={`p-6 bg-[#1e3a8a]/50 backdrop-blur-sm border-white/20 hover:bg-[#1e3a8a]/60 transition-all duration-500 hover:scale-105 animate-slideUp delay-${(index + 2) * 50}`}
                 data-animate
               >
                 <div className="flex gap-4 items-start">
-                  <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0 animate-glow">
-                    <feature.icon className="w-6 h-6 text-white" />
+                  <div className="w-12 h-12 rounded-full bg-[#f97316]/20 flex items-center justify-center flex-shrink-0 animate-glow">
+                    <feature.icon className="w-6 h-6 text-[#f97316]" />
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold mb-2 text-white">{feature.title}</h3>
@@ -95,7 +120,7 @@ export function TrustSection() {
             className="mt-16 text-center animate-slideUp delay-1000"
             data-animate
           >
-            <div className="inline-block border border-white/20 rounded-full px-8 py-4 backdrop-blur-sm bg-white/10 animate-glow">
+            <div className="inline-block border border-white/20 rounded-full px-8 py-4 backdrop-blur-sm bg-[#1e3a8a]/50 animate-glow">
               <p className="text-lg font-medium text-white">
                 Mais de 1000+ negócios já confiam em nossa solução
               </p>

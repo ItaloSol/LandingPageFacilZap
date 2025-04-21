@@ -61,19 +61,19 @@ export function TestimonialsSection() {
   }, []);
 
   return (
-    <section className="py-24 bg-muted relative overflow-hidden" ref={sectionRef}>
+    <section className="py-24 bg-[#1e3a8a] relative overflow-hidden" ref={sectionRef}>
       <div className="absolute inset-0 bg-grid-white/10" />
       <div className="container mx-auto px-4 relative">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 
-              className="text-3xl md:text-4xl font-bold mb-4 animate-fadeInDown"
+              className="text-3xl md:text-4xl font-bold mb-4 text-white animate-fadeInDown"
               data-animate
             >
               Histórias de Sucesso
             </h2>
             <p 
-              className="text-xl text-muted-foreground animate-fadeIn delay-300"
+              className="text-xl text-white/80 animate-fadeIn delay-300"
               data-animate
             >
               Veja como nossos clientes transformaram seus negócios
@@ -84,7 +84,7 @@ export function TestimonialsSection() {
             {testimonials.map((testimonial, index) => (
               <Card 
                 key={index} 
-                className={`p-8 hover:shadow-lg transition-all duration-500 hover:scale-105 ${index % 2 === 0 ? 'animate-fadeInLeft' : 'animate-fadeInRight'} delay-${(index + 2) * 200}`}
+                className={`p-8 bg-white/10 backdrop-blur-sm border-white/20 hover:shadow-lg transition-all duration-500 hover:scale-105 ${index % 2 === 0 ? 'animate-fadeInLeft' : 'animate-fadeInRight'} delay-${(index + 2) * 200}`}
                 data-animate
               >
                 <div 
@@ -94,32 +94,32 @@ export function TestimonialsSection() {
                   {[...Array(5)].map((_, i) => (
                     <Star 
                       key={i} 
-                      className="w-5 h-5 fill-primary text-primary"
+                      className="w-5 h-5 fill-[#f97316] text-[#f97316]"
                     />
                   ))}
                 </div>
 
-                <div className="bg-primary/5 rounded-lg p-4 mb-6 flex items-center gap-4 transform transition-all duration-300 hover:scale-102">
-                  <div className="bg-primary/10 rounded-full p-2">
-                    <testimonial.metrics.icon className="w-6 h-6 text-primary" />
+                <div className="bg-white/5 rounded-lg p-4 mb-6 flex items-center gap-4 transform transition-all duration-300 hover:scale-102">
+                  <div className="bg-white/10 rounded-full p-2">
+                    <testimonial.metrics.icon className="w-6 h-6 text-[#f97316]" />
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-primary">
+                    <div className="text-2xl font-bold text-white">
                       {testimonial.metrics.value}
                     </div>
-                    <div className="text-sm text-muted-foreground">
+                    <div className="text-sm text-white/80">
                       {testimonial.metrics.label}
                     </div>
                   </div>
                 </div>
 
-                <blockquote className="mb-6 text-lg">
+                <blockquote className="mb-6 text-lg text-white">
                   &ldquo;{testimonial.text}&rdquo;
                 </blockquote>
 
                 <div className="mt-auto">
-                  <p className="font-semibold">{testimonial.author}</p>
-                  <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                  <p className="font-semibold text-white">{testimonial.author}</p>
+                  <p className="text-sm text-white/80">{testimonial.role}</p>
                 </div>
               </Card>
             ))}
