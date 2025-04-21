@@ -6,6 +6,7 @@ import { Navbar } from '@/components/navbar';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://sitefacilzap.web.app/'),
   title: 'FácilZap | Loja Online e PDV para Seu Negócio',
   description: 'Sistema completo de e-commerce e PDV para alavancar suas vendas. Integração com WhatsApp, relatórios automáticos e suporte especializado.',
   keywords: 'loja online, e-commerce, PDV, vendas online, WhatsApp business, gestão de negócios, automação comercial',
