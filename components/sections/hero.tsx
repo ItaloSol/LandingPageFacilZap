@@ -42,7 +42,10 @@ export function HeroSection() {
   const isSmUp = useIsSmUp();
 
   return (
-    <section id='hero' className="relative h-screen min-h-screen bg-gradient-to-b from-[#1e3a8a] to-[#0f172a] py-16 sm:py-24 md:py-32 text-white overflow-hidden flex items-center">
+    <section
+      id='hero'
+      className="relative min-h-screen flex items-center bg-gradient-to-b from-[#1e3a8a] to-[#0f172a] text-white overflow-hidden"
+    >
       {isSmUp && (
         <Image 
           src="/fundo.webp" 
@@ -52,14 +55,14 @@ export function HeroSection() {
           className="absolute inset-0 opacity-10"
         />
       )}
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 py-8 sm:py-16 md:py-24 relative">
         <div className="flex items-center gap-2 mb-8 justify-center md:justify-start">
           <Image 
             src="/logo.webp"
             alt="FácilZap Logo"
             width={200}
             height={50}
-            className=" w-auto"
+            className="w-auto"
           />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
@@ -91,7 +94,7 @@ export function HeroSection() {
               alt="Floating Image"
               width={1410}
               height={1512}
-              className="w-96 h-96 object-cover rounded-lg"
+              className="w-72 h-72 sm:w-96 sm:h-96 object-cover rounded-lg"
               priority
             />
           </div>
