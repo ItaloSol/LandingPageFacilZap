@@ -2,23 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { ArrowRight, MessageCircle } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
-import Image from 'next/image';
-
-
-// Custom hook to detect sm and up
-function useIsSmUp() {
-  const [isSmUp, setIsSmUp] = useState(false);
-
-  useEffect(() => {
-    const checkScreen = () => setIsSmUp(window.innerWidth >= 640);
-    checkScreen();
-    window.addEventListener("resize", checkScreen);
-    return () => window.removeEventListener("resize", checkScreen);
-  }, []);
-
-  return isSmUp;
-}
+import { useEffect, useRef } from "react";
 
 export function CTASection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -48,19 +32,9 @@ export function CTASection() {
     window.open(`https://wa.me/5511940003147?text=${message}`, '_blank');
   };
 
-  const isSmUp = useIsSmUp();
-
   return (
     <section className="py-16 md:py-20 bg-[#0f172a] text-white relative overflow-hidden" ref={sectionRef}>
-      {isSmUp && (
-        <Image 
-          src="/fundo.webp" 
-          alt="Background" 
-          layout="fill" 
-          objectFit="cover" 
-          className="absolute inset-0 opacity-10"
-        />
-      )}
+      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=2069')] bg-cover bg-center opacity-5" />
       <div className="container mx-auto px-4 text-center relative">
         <h2 
           className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 md:mb-4 max-w-[15ch] mx-auto leading-tight animate-zoomIn"

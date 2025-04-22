@@ -34,7 +34,7 @@ export function ProblemSolutionSection() {
   }, []);
 
   return (
-    <section id="problema" className="py-24 bg-[#0f172a]" ref={sectionRef}>
+    <section className="py-24 bg-[#0f172a]" ref={sectionRef}>
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <h2 

@@ -7,13 +7,13 @@ import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 
 const portfolioItems = [
-  { name: 'INSTINTO IMPORTS', image: '1.webp', description: 'E-commerce de moda' },
-  { name: 'MULTIMARCAS SS', image: '2.webp', description: 'E-commerce de moda' },
-  { name: 'Francisco moda infantil', image: '3.webp', description: 'E-commerce de moda Kids' },
-  { name: 'Tendência Juvenil', image: '4.webp', description: 'E-commerce de moda jovem' },
-  { name: 'Sil Kids', image: '5.webp', description: 'E-commerce de moda Kids' },
-  { name: 'Sil Atacado e varejo', image: '6.webp', description: 'E-commerce de moda calçados' },
-  { name: 'S&D Kids', image: '7.webp', description: 'E-commerce de moda Kids' },
+  { name: 'SS Multimarcas', image: '1.webp', description: 'E-commerce de moda' },
+  { name: 'Tech Store', image: '2.webp', description: 'Loja de eletrônicos' },
+  { name: 'Bella Cosméticos', image: '3.webp', description: 'Produtos de beleza' },
+  { name: 'Pet Shop Online', image: '4.webp', description: 'Produtos para pets' },
+  { name: 'Café Gourmet', image: '5.webp', description: 'Cafeteria online' },
+  { name: 'Fit Store', image: '6.webp', description: 'Suplementos e produtos fitness' },
+  { name: 'Joias & Acessórios', image: '7.webp', description: 'Bijuterias e semi-joias' },
 ];
 
 export function PortfolioSection() {
@@ -47,7 +47,7 @@ export function PortfolioSection() {
   };
 
   return (
-    <section id='portfolio' className="py-16 md:py-24 bg-[#1e3a8a] relative overflow-hidden max-h-screen h-screen">
+    <section className="py-16 md:py-24 bg-[#1e3a8a] relative overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-8 md:mb-12">
