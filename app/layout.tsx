@@ -6,17 +6,18 @@ import { Navbar } from '@/components/navbar';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://sitefacilzap.web.app/'),
   title: 'FácilZap | Loja Online e PDV para Seu Negócio',
   description: 'Sistema completo de e-commerce e PDV para alavancar suas vendas. Integração com WhatsApp, relatórios automáticos e suporte especializado.',
   keywords: 'loja online, e-commerce, PDV, vendas online, WhatsApp business, gestão de negócios, automação comercial',
   openGraph: {
     title: 'FácilZap | Loja Online e PDV para Seu Negócio',
     description: 'Sistema completo de e-commerce e PDV para alavancar suas vendas. Integração com WhatsApp, relatórios automáticos e suporte especializado.',
-    url: 'https://facilzap.com.br',
+    url: 'https://sitefacilzap.web.app/',
     siteName: 'FácilZap',
     images: [
       {
-        url: '/og-image.jpg',
+        url: '/og-image.png',
         width: 1200,
         height: 630,
         alt: 'FácilZap - Solução completa para seu negócio',
@@ -40,7 +41,7 @@ export const metadata: Metadata = {
     google: 'your-google-verification-code',
   },
   alternates: {
-    canonical: 'https://facilzap.com.br',
+    canonical: 'https://sitefacilzap.web.app/',
   },
 };
 
@@ -53,8 +54,6 @@ export default function RootLayout({
     <html lang="pt-BR">
       <head>
         <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <meta name="theme-color" content="#1e3a8a" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
       </head>
       <body className={inter.className}>

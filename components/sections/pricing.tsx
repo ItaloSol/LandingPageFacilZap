@@ -2,7 +2,8 @@
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Check, ArrowRight, AlertCircle } from "lucide-react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Check, ArrowRight, AlertCircle, Plus } from "lucide-react";
 import { useEffect, useRef } from "react";
 
 const plans = [
@@ -17,10 +18,29 @@ const plans = [
       "Pagamentos via PIX e Cartão",
       "Suporte Online por 30 Dias",
       "Loja online básica",
-      "Integração WhatsApp"
+      "Integração WhatsApp",
+      "Até 10 Notas Fiscais por Mês",
+      "Até 300 Produtos",
+      "Ilimitados Pedidos",
+      "Até 3 Administradores",
+      "Estatísticas Detalhadas",
+      "Controle de Estoque",
+      "Formas de Pagamento Manuais",
+      "Formas de Entrega Manuais",
+      "Histórico e Gerenciamento de Pedidos",
+      "Edição de Pedidos (Incluir e Excluir)",
+      "Compra Mínima e Máxima Produtos",
+      "Regras de Descontos no Produto e no Pedido",
+      "Regras de Frete Grátis",
+      "Compra Visitante (Sem login)",
+      "Link Restrito para Usuário Logados",
+      "Configuração de Embalagens para Envio",
+      "Venda balcão (PDV)",
+      "APP Android",
+      "APP iOS"
     ],
     cta: "Começar agora",
-    highlight: false // Ensure this is false
+    highlight: false
   },
   {
     name: "Bronze",
@@ -34,10 +54,37 @@ const plans = [
       "Treinamento exclusivo (3 horas)",
       "Cadastro de administrador",
       "Domínio próprio",
-      "Configuração profissional"
+      "Configuração profissional",
+      "Até 10 Notas Fiscais por Mês",
+      "Até 300 Produtos",
+      "Ilimitados Pedidos",
+      "Até 3 Administradores",
+      "Utilizar Domínio Próprio",
+      "Estatísticas Detalhadas",
+      "Cadastro de Produtos em Massa",
+      "Controle de Estoque",
+      "Formas de Pagamento Manuais",
+      "Formas de Entrega Manuais",
+      "Contas a Receber e a Pagar",
+      "Afiliados",
+      "Cashback",
+      "Cálculo Automático do Frete",
+      "Formas de Pagamento Online",
+      "Integrações",
+      "Histórico e Gerenciamento de Pedidos",
+      "Edição de Pedidos (Incluir e Excluir)",
+      "Compra Mínima e Máxima Produtos",
+      "Regras de Descontos no Produto e no Pedido",
+      "Regras de Frete Grátis",
+      "Compra Visitante (Sem login)",
+      "Link Restrito para Usuário Logados",
+      "Configuração de Embalagens para Envio",
+      "Venda balcão (PDV)",
+      "APP Android",
+      "APP iOS"
     ],
     cta: "Escolher Bronze",
-    highlight: false // Ensure this is false
+    highlight: false
   },
   {
     name: "Prata",
@@ -51,10 +98,49 @@ const plans = [
       "Configuração para Impressão de Código de Barras",
       "Treinamento Completo (6 horas)",
       "PDV multilojas",
-      "Relatórios avançados"
+      "Relatórios avançados",
+      "Até 30 Notas Fiscais por Mês",
+      "Até 450 Produtos",
+      "Ilimitados Pedidos",
+      "Até 4 Administradores",
+      "Chatbot",
+      "Utilizar Domínio Próprio",
+      "Estatísticas Detalhadas",
+      "Cadastro de Produtos em Massa",
+      "Controle de Estoque",
+      "Formas de Pagamento Manuais",
+      "Formas de Entrega Manuais",
+      "Painel de Vendedores",
+      "Painel de Conferentes",
+      "Múltiplos Catálogos",
+      "Cancelamento Automático de Pedidos Não Pagos",
+      "Retorno Automático do Estoque de Pedidos Não Pagos",
+      "Controle de Caixa",
+      "Contas a Receber e a Pagar",
+      "Afiliados",
+      "Revendedor Pro",
+      "Cashback",
+      "Brindes",
+      "FácilZap API",
+      "Cálculo Automático do Frete",
+      "Formas de Pagamento Online",
+      "Integrações",
+      "Promotores de Vendas (Supervisionar equipe)",
+      "Resultados de Vendedores Cliques, Pedidos e Faturamento",
+      "Histórico e Gerenciamento de Pedidos",
+      "Edição de Pedidos (Incluir e Excluir)",
+      "Compra Mínima e Máxima Produtos",
+      "Regras de Descontos no Produto e no Pedido",
+      "Regras de Frete Grátis",
+      "Compra Visitante (Sem login)",
+      "Link Restrito para Usuário Logados",
+      "Configuração de Embalagens para Envio",
+      "Venda balcão (PDV)",
+      "APP Android",
+      "APP iOS"
     ],
     cta: "Escolher Prata",
-    highlight: true // Set this to true to highlight the Prata plan
+    highlight: true
   },
   {
     name: "Ouro",
@@ -69,10 +155,49 @@ const plans = [
       "Gestão Financeira e de Estoque Integrada",
       "Otimização de Bio no Instagram",
       "Bônus Exclusivo",
-      "Suporte 24/7 Prioritário"
+      "Suporte 24/7 Prioritário",
+      "Ilimitadas Notas Fiscais por Mês",
+      "Ilimitados Produtos",
+      "Ilimitados Pedidos",
+      "Ilimitados Administradores",
+      "Chatbot",
+      "Utilizar Domínio Próprio",
+      "Estatísticas Detalhadas",
+      "Cadastro de Produtos em Massa",
+      "Controle de Estoque",
+      "Formas de Pagamento Manuais",
+      "Formas de Entrega Manuais",
+      "Painel de Vendedores",
+      "Painel de Conferentes",
+      "Múltiplos Catálogos",
+      "Cancelamento Automático de Pedidos Não Pagos",
+      "Retorno Automático do Estoque de Pedidos Não Pagos",
+      "Controle de Caixa",
+      "Contas a Receber e a Pagar",
+      "Afiliados",
+      "Revendedor Pro",
+      "Cashback",
+      "Brindes",
+      "FácilZap API",
+      "Cálculo Automático do Frete",
+      "Formas de Pagamento Online",
+      "Integrações",
+      "Promotores de Vendas (Supervisionar equipe)",
+      "Resultados de Vendedores Cliques, Pedidos e Faturamento",
+      "Histórico e Gerenciamento de Pedidos",
+      "Edição de Pedidos (Incluir e Excluir)",
+      "Compra Mínima e Máxima Produtos",
+      "Regras de Descontos no Produto e no Pedido",
+      "Regras de Frete Grátis",
+      "Compra Visitante (Sem login)",
+      "Link Restrito para Usuário Logados",
+      "Configuração de Embalagens para Envio",
+      "Venda balcão (PDV)",
+      "APP Android",
+      "APP iOS"
     ],
     cta: "Escolher Ouro",
-    highlight: false // Ensure this is false
+    highlight: false
   }
 ];
 
@@ -129,7 +254,7 @@ export function PricingSection() {
                 key={plan.name}
                 className={`p-8 flex flex-col transition-all duration-300 hover:shadow-xl hover:scale-105 bg-[#0f172a] ${
                   plan.highlight 
-                    ? 'border-[#14532d] shadow-lg relative before:absolute before:inset-0 before:border-2 before:border-[#14532d] before:rounded-lg before:-m-[1px]' 
+                    ? 'border-[#14532d] shadow-lg relative  before:inset-0 before:border-2 before:border-[#14532d] before:rounded-lg before:-m-[1px]' 
                     : 'border-white/10'
                 } animate-slideUp delay-${(index + 2) * 50}`}
                 data-animate
@@ -152,12 +277,35 @@ export function PricingSection() {
 
                 <div className="flex-grow">
                   <ul className="space-y-4 mb-8">
-                    {plan.features.map((feature) => (
-                      <li key={feature} className="flex items-start gap-3">
+                    {plan.features.slice(0, 4).map((feature, i) => (
+                      <li key={feature + i} className="flex items-start gap-3">
                         <Check className="w-5 h-5 text-[#f97316] flex-shrink-0 mt-1" />
                         <span className="text-white/70">{feature}</span>
                       </li>
                     ))}
+                    {plan.features.length > 4 && (
+                      <Dialog>
+                        <DialogTrigger asChild>
+                          <Button variant="link" className="text-[#f97316] hover:text-[#f97316]/80 p-0 h-auto font-normal">
+                            <Plus className="w-5 h-5 mr-2" />
+                            Ver mais {plan.features.length - 4} recursos
+                          </Button>
+                        </DialogTrigger>
+                        <DialogContent className="bg-[#0f172a] border-white/10 text-white max-h-[80vh] overflow-y-auto">
+                          <DialogHeader>
+                            <DialogTitle className="text-2xl font-bold mb-4">Plano {plan.name}</DialogTitle>
+                          </DialogHeader>
+                          <div className="space-y-4">
+                            {plan.features.map((feature, i) => (
+                              <div key={feature + i} className="flex items-start gap-3">
+                                <Check className="w-5 h-5 text-[#f97316] flex-shrink-0 mt-1" />
+                                <span className="text-white/70">{feature}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </DialogContent>
+                      </Dialog>
+                    )}
                   </ul>
                 </div>
 
