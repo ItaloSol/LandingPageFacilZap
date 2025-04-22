@@ -9,7 +9,7 @@ const plans = [
   {
     name: "Básico",
     description: "Comece com o pé direito! Ideal para iniciar sua jornada de vendas digital",
-    price: "R$ 147/mês",
+    price: "R$ 50/mês",
     setupFee: "R$ 650,00",
     features: [
       "PDV (Venda Balcão) Integrado",
@@ -20,12 +20,12 @@ const plans = [
       "Integração WhatsApp"
     ],
     cta: "Começar agora",
-    highlight: false
+    highlight: false // Ensure this is false
   },
   {
     name: "Bronze",
     description: "Expansão com integrações e treinamento estratégico",
-    price: "R$ 197/mês",
+    price: "R$ 100/mês",
     setupFee: "R$ 750,00",
     features: [
       "Tudo do Plano Básico",
@@ -37,12 +37,12 @@ const plans = [
       "Configuração profissional"
     ],
     cta: "Escolher Bronze",
-    highlight: true
+    highlight: false // Ensure this is false
   },
   {
     name: "Prata",
     description: "Alta performance e recursos avançados para impulsionar vendas",
-    price: "R$ 297/mês",
+    price: "R$ 100/mês",
     setupFee: "R$ 1.100,00",
     features: [
       "Tudo do Plano Bronze",
@@ -54,12 +54,12 @@ const plans = [
       "Relatórios avançados"
     ],
     cta: "Escolher Prata",
-    highlight: false
+    highlight: true // Set this to true to highlight the Prata plan
   },
   {
     name: "Ouro",
     description: "Solução definitiva para maximizar vendas e automatizar processos",
-    price: "R$ 497/mês",
+    price: "R$ 150/mês",
     setupFee: "R$ 1.499,00",
     features: [
       "Tudo do Plano Prata",
@@ -72,7 +72,7 @@ const plans = [
       "Suporte 24/7 Prioritário"
     ],
     cta: "Escolher Ouro",
-    highlight: false
+    highlight: false // Ensure this is false
   }
 ];
 
@@ -131,7 +131,7 @@ export function PricingSection() {
                   plan.highlight 
                     ? 'border-[#14532d] shadow-lg relative before:absolute before:inset-0 before:border-2 before:border-[#14532d] before:rounded-lg before:-m-[1px]' 
                     : 'border-white/10'
-                } animate-slideUp delay-${(index + 2) * 200}`}
+                } animate-slideUp delay-${(index + 2) * 50}`}
                 data-animate
               >
                 {plan.highlight && (

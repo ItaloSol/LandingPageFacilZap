@@ -7,13 +7,13 @@ import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 
 const portfolioItems = [
-  { name: 'SS Multimarcas', image: '1.webp', description: 'E-commerce de moda' },
-  { name: 'Tech Store', image: '2.webp', description: 'Loja de eletrônicos' },
-  { name: 'Bella Cosméticos', image: '3.webp', description: 'Produtos de beleza' },
-  { name: 'Pet Shop Online', image: '4.webp', description: 'Produtos para pets' },
-  { name: 'Café Gourmet', image: '5.webp', description: 'Cafeteria online' },
-  { name: 'Fit Store', image: '6.webp', description: 'Suplementos e produtos fitness' },
-  { name: 'Joias & Acessórios', image: '7.webp', description: 'Bijuterias e semi-joias' },
+  { name: 'INSTINTO IMPORTS', image: '1.webp', description: 'E-commerce de moda' },
+  { name: 'MULTIMARCAS SS', image: '2.webp', description: 'E-commerce de moda' },
+  { name: 'Francisco moda infantil', image: '3.webp', description: 'E-commerce de moda Kids' },
+  { name: 'Tendência Juvenil', image: '4.webp', description: 'E-commerce de moda jovem' },
+  { name: 'Sil Kids', image: '5.webp', description: 'E-commerce de moda Kids' },
+  { name: 'Sil Atacado e varejo', image: '6.webp', description: 'E-commerce de moda calçados' },
+  { name: 'S&D Kids', image: '7.webp', description: 'E-commerce de moda Kids' },
 ];
 
 export function PortfolioSection() {
@@ -47,10 +47,10 @@ export function PortfolioSection() {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-[#1e3a8a] relative overflow-hidden">
-      <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-8 md:mb-12">
+    <section id='portfolio' className="h-[100dvh] flex flex-col bg-[#1e3a8a] relative overflow-hidden">
+      <div className="container mx-auto px-4 flex-1 flex flex-col">
+        <div className="max-w-6xl mx-auto w-full flex-1 flex flex-col">
+          <div className="text-center mb-8">
             <h2 className="text-3xl md:text-4xl font-bold mb-3 text-white">
               Sites que já criamos para nossos clientes
             </h2>
@@ -59,7 +59,7 @@ export function PortfolioSection() {
             </p>
           </div>
 
-          <div className="relative group">
+          <div className="relative group flex-1 flex flex-col">
             <Button
               variant="outline"
               size="icon"
@@ -71,7 +71,7 @@ export function PortfolioSection() {
 
             <div
               ref={scrollContainerRef}
-              className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 md:pb-6 -mx-4 px-4 md:mx-0 md:px-0 touch-pan-x scroll-smooth"
+              className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 md:pb-6 -mx-4 px-4 md:mx-0 md:px-0 touch-pan-x scroll-smooth flex-1"
             >
               {portfolioItems.map((item, index) => (
                 <Card

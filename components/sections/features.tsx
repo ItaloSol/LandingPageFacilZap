@@ -1,24 +1,29 @@
 'use client';
 
 import { Card } from "@/components/ui/card";
-import { ShoppingBag, Terminal, Headphones } from "lucide-react";
+import { Users, Layers, MessageCircle, Receipt } from "lucide-react";
 import { useEffect, useRef } from "react";
 
 const features = [
   {
-    icon: ShoppingBag,
-    title: "Loja Online Profissional",
-    description: "Sua vitrine virtual 24/7 com design responsivo e checkout otimizado para conversão"
+    icon: Users,
+    title: "Gestão de Vendedores",
+    description: "Controle total de sua equipe de vendas com comissões, metas e relatórios individuais"
   },
   {
-    icon: Terminal,
-    title: "PDV Eficiente",
-    description: "Controle total do seu estoque e vendas com relatórios detalhados"
+    icon: Layers,
+    title: "Múltiplos Catálogos",
+    description: "Organize seus produtos em diferentes catálogos para cada público ou canal de venda"
   },
   {
-    icon: Headphones,
-    title: "Suporte Especializado",
-    description: "Atendimento personalizado para garantir o sucesso do seu negócio"
+    icon: MessageCircle,
+    title: "Integração WhatsApp Completa",
+    description: "Automatize vendas, atendimento e acompanhamento de pedidos direto pelo WhatsApp"
+  },
+  {
+    icon: Receipt,
+    title: "Emissão de Nota Fiscal",
+    description: "Emita notas fiscais automaticamente, integrado ao seu processo de venda"
   }
 ];
 
@@ -53,16 +58,16 @@ export function FeaturesSection() {
             className="text-3xl md:text-4xl font-bold text-center mb-4"
             data-animate
           >
-            Recursos Exclusivos
+            Diferenciais Exclusivos
           </h2>
           <p 
             className="text-xl text-gray-300 text-center mb-12 max-w-2xl mx-auto"
             data-animate
           >
-            Tudo que você precisa para vender mais
+            Os pilares que fazem a diferença no seu negócio
           </p>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {features.map((feature, index) => (
               <Card 
                 key={index} 

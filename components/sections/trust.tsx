@@ -2,7 +2,8 @@
 
 import { Card } from "@/components/ui/card";
 import { Shield, HeadphonesIcon, Rocket, Clock } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import Image from 'next/image';
 
 const trustFeatures = [
   {
@@ -27,8 +28,23 @@ const trustFeatures = [
   }
 ];
 
+function useIsSmUp() {
+  const [isSmUp, setIsSmUp] = useState(false);
+
+  useEffect(() => {
+    // Only run on client
+    const checkScreen = () => setIsSmUp(window.innerWidth >= 640); // 640px is Tailwind's sm breakpoint
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
+    return () => window.removeEventListener("resize", checkScreen);
+  }, []);
+
+  return isSmUp;
+}
+
 export function TrustSection() {
   const sectionRef = useRef<HTMLElement>(null);
+  const isSmUp = useIsSmUp();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -52,7 +68,16 @@ export function TrustSection() {
 
   return (
     <section className="py-24 bg-[#0f172a] text-white relative overflow-hidden" ref={sectionRef}>
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=2069')] bg-cover bg-center opacity-10" />
+      {isSmUp && (
+        <Image 
+          src="/fundo.webp" 
+          alt="Background" 
+          layout="fill" 
+          objectFit="cover" 
+          className="absolute inset-0 opacity-10"
+        />
+      )}
+
       
       <div className="container mx-auto px-4 relative">
         <div className="max-w-5xl mx-auto">
@@ -75,7 +100,7 @@ export function TrustSection() {
             {trustFeatures.map((feature, index) => (
               <Card 
                 key={index} 
-                className={`p-6 bg-[#1e3a8a]/50 backdrop-blur-sm border-white/20 hover:bg-[#1e3a8a]/60 transition-all duration-500 hover:scale-105 animate-slideUp delay-${(index + 2) * 200}`}
+                className={`p-6 bg-[#1e3a8a]/50 backdrop-blur-sm border-white/20 hover:bg-[#1e3a8a]/60 transition-all duration-500 hover:scale-105 animate-slideUp delay-${(index + 2) * 50}`}
                 data-animate
               >
                 <div className="flex gap-4 items-start">
