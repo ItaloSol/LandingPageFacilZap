@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "sitefacilzap",
     "public": "out",
     "ignore": [
       "firebase.json",
